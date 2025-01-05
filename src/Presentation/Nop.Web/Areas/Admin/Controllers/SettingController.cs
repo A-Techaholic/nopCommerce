@@ -228,6 +228,13 @@ public partial class SettingController : BaseAdminController
         return View(model);
     }
 
+    [HttpPost, ActionName("ExportAppSettings")]
+    public virtual async Task<IActionResult> ExportAppSettings()
+    {
+        var fileBytes = await AppSettingsHelper.GetAppSettingsFileAsync(_fileProvider);
+        return File(fileBytes, MimeTypes.ApplicationJson, NopConfigurationDefaults.AppSettingsFileName);
+    }
+
     public virtual async Task<IActionResult> Blog()
     {
         if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageSettings))

@@ -68,5 +68,16 @@ public partial class AppSettingsHelper
         return appSettings;
     }
 
+    /// <summary>
+    /// Get the current app settings file as bytes
+    /// </summary>
+    /// <param name="fileProvider">File provider</param>
+    /// <returns>App settings file bytes</returns>
+    public static async Task<byte[]> GetAppSettingsFileAsync(INopFileProvider fileProvider)
+    {
+        var filePath = fileProvider.MapPath(NopConfigurationDefaults.AppSettingsFilePath);
+        return await fileProvider.ReadAllBytesAsync(filePath);
+    }
+
     #endregion
 }

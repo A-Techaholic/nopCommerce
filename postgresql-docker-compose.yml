@@ -16,7 +16,7 @@ services:
       - "5432:5432"
     restart: "always"
     environment:
-      POSTGRES_PASSWORD: "nopCommerce_db_password"
+      POSTGRES_PASSWORD: "123456"
     volumes:
       - nopcommerce_data:/var/lib/postgresql/data
 

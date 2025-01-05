@@ -141,4 +141,13 @@
   <LocaleResource Name="Tooltip2">
     <Value>To complete this wizard, you must know some information regarding your database server ("connection string"). Please contact your ISP if necessary. If you're installing on a local machine or server, you might need information from your System Admin.</Value>
   </LocaleResource>
+  <LocaleResource Name="ImportSettings">
+    <Value>Import settings</Value>
+  </LocaleResource>
+  <LocaleResource Name="ImportSettingsHint">
+    <Value>Select an appsettings.json file exported from another installation to import its settings</Value>
+  </LocaleResource>
+  <LocaleResource Name="ImportSettingsButton">
+    <Value>Import and Install</Value>
+  </LocaleResource>
 </Language>

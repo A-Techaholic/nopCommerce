@@ -57,4 +57,8 @@ public partial record InstallModel : INopConnectionStringInfo
     public IDictionary<string, string> RawDataSettings => new Dictionary<string, string>();
 
     public string RestartUrl { get; set; }
+
+    public bool ImportSettings { get; set; }
+
+    public IFormFile ImportSettingsFile { get; set; }
 }

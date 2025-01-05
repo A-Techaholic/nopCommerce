@@ -5,6 +5,19 @@
 
 ![nopCommerce demo](https://www.nopcommerce.com/images/github/responsive_devices_codeplex.png#v1)
 
+### Run instructions ###
++ Full system: `docker compose -f postgresql-docker-compose.yml up -d`
++ Database only: `docker compose -f postgresql-docker-compose.yml up -d nopcommerce_database`
++ Local web project: `dotnet run --project src/Presentation/Nop.Web/Nop.Web.csproj`
+
+### Clean up instructions ###
++ `docker compose -f postgresql-docker-compose.yml down`
++ `docker volume rm nopcommerce-postgres_nopcommerce_data`
++ `rm -rf src/Presentation/Nop.Web/App_Data/appsettings.json`
+
+### Docker image build instructions ###
++ `docker compose -f postgresql-docker-compose.yml build`
+
 ### Key features ###
 
 * The product is being developed and supported by the professional team since 2008.

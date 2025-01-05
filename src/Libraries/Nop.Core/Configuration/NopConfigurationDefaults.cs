@@ -6,6 +6,11 @@
 public static partial class NopConfigurationDefaults
 {
     /// <summary>
+    /// Gets the name of the file that contains app settings
+    /// </summary>
+    public static string AppSettingsFileName => "appsettings.json";
+
+    /// <summary>
     /// Gets the path to file that contains app settings
     /// </summary>
     public static string AppSettingsFilePath => "App_Data/appsettings.json";

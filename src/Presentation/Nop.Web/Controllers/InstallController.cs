@@ -154,6 +154,20 @@ public partial class InstallController : Controller
         if (DataSettingsManager.IsDatabaseInstalled())
             return RedirectToRoute("Homepage");
 
+        if (model.ImportSettings && model.ImportSettingsFile != null && model.ImportSettingsFile.Length > 0)
+        {
+            var filePath = _fileProvider.MapPath(NopConfigurationDefaults.AppSettingsFilePath);
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await model.ImportSettingsFile.CopyToAsync(stream);
+            }
+            
+            ModelState.Clear();
+
+            // Return to Index with RestartUrl set
+            return View(new InstallModel { RestartUrl = Url.RouteUrl("Homepage") });
+        }
+
         model.DisableSampleDataOption = _appSettings.Get<InstallationConfig>().DisableSampleData;
         model.InstallRegionalResources = _appSettings.Get<InstallationConfig>().InstallRegionalResources;
 
